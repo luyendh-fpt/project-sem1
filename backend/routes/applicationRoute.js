@@ -12,31 +12,7 @@ module.exports = function(app){
 	app.route('/_api/v1/students/:id')
 		.get(studentController.getDetail)
 		.put(studentController.update)
-		.delete(studentController.delete);	
-
-	// accounts api.
-	app.route('/_api/v1/accounts')
-		.get(accountController.getList)
-		.post(accountController.add);	
-
-	app.route('/_api/v1/accounts/:id')
-		.get(accountController.getDetail)
-		.put(accountController.update)
-		.delete(accountController.delete);
-
-	// authentication api.
-	app.route('/_api/v1/authentications')		
-		.post(authenticationController.checkLogin);		
-
-	// category api.
-	app.route('/_api/v1/categories')
-		.get(categoryController.getList)
-		.post(categoryController.add);	
-
-	app.route('/_api/v1/categories/:id')
-		.get(categoryController.getDetail)
-		.put(categoryController.update)
-		.delete(categoryController.delete);	
+		.delete(studentController.delete);		
 
 	// image api.	
 	app.post('/_api/v1/images', function(req, res) {		

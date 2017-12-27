@@ -1,7 +1,5 @@
 var studentController = require('../controllers/studentController');
-var accountController = require('../controllers/accountController');
-var authenticationController = require('../controllers/authenticationController');
-var categoryController = require('../controllers/categoryController');
+var adminController = require('../controllers/adminController');
 
 module.exports = function(app){
 	// students api.
@@ -12,7 +10,17 @@ module.exports = function(app){
 	app.route('/_api/v1/students/:id')
 		.get(studentController.getDetail)
 		.put(studentController.update)
-		.delete(studentController.delete);		
+		.delete(studentController.delete);
+
+	// admin api.
+	app.route('/_api/v1/admins')
+		.get(adminController.getList)
+		.post(adminController.add);	
+
+	app.route('/_api/v1/admins/:id')
+		.get(adminController.getDetail)
+		.put(adminController.update)
+		.delete(adminController.delete);		
 
 	// image api.	
 	app.post('/_api/v1/images', function(req, res) {		
